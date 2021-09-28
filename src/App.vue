@@ -7,6 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import { defineAsyncComponent } from 'vue'
 
 export default {
   name: 'App',
@@ -16,14 +17,14 @@ export default {
   data: function () {
     return {
       componentNames1: [
-        'HelloOne',
-        'HelloTwo',
-        'HelloThree',
+        defineAsyncComponent(() => import('./components/HelloOne.vue')),
+        defineAsyncComponent(() => import('./components/HelloTwo.vue')),
+        defineAsyncComponent(() => import('./components/HelloThree.vue')),
       ],
       componentNames2: [
-        'TestOne',
-        'TestTwo',
-        'TestThree',
+        defineAsyncComponent(() => import('./components/TestOne.vue')),
+        defineAsyncComponent(() => import('./components/TestTwo.vue')),
+        defineAsyncComponent(() => import('./components/TestThree.vue')),
       ]
     }
   }
